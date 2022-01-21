@@ -65,7 +65,7 @@ function markerSize(mag){
 
 function markerColor(mag){
 
-  if (mag <= 2) {
+  if (mag <= 1) {
     return "green";
   } 
   else if (mag <= 3){
@@ -121,3 +121,44 @@ function onEachFeature(feature, layer) {
 // }).addTo(earthquakes);
 // earthquakes.addTo(myMap);
 // });   //closes d3.json( from above.
+
+var legend = L.control({position: 'bottomright'});
+
+  legend.onAdd = function () {
+  
+      var div = L.DomUtil.create('div', 'info legend'),
+          
+          magGroups = [0, 1, 3, 5];
+  
+      for (var i = 0; i < magGroups.length; i++) {
+          div.innerHTML +=
+          
+              '<style="background:' + markerColor(magGroups[i] + 1) + '"></i> ' + 
+      + magGroups[i] + (magGroups[i + 1] ? ' - ' + magGroups[i + 1] + '<br>' : ' + ');
+      }
+
+      
+  
+      return div;
+  };
+  
+  legend.addTo(myMap);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+
+
