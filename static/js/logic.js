@@ -93,7 +93,7 @@ d3.json(queryUrl).then(function(data) {
         radius: markerSize(feature.properties.mag),       // or function()
         // color: "white",
         fillColor: markerColor(feature.properties.mag),  // or function()
-        fillOpacity: 1,
+        fillOpacity: .8,
         stroke: false
       });
     },
@@ -129,11 +129,15 @@ var legend = L.control({position: 'bottomright'});
       var div = L.DomUtil.create('div', 'info legend'),
           
           magGroups = [0, 1, 3, 5];
+
+          div.innerHTML += '<h3>Magnitude</h3>';    
+          
   
       for (var i = 0; i < magGroups.length; i++) {
           div.innerHTML +=
-          
-              '<style="background:' + markerColor(magGroups[i] + 1) + '"></i> ' + 
+
+                        
+              '<i style="background:' + markerColor(magGroups[i] + 1) + '"></i> ' + 
       + magGroups[i] + (magGroups[i + 1] ? ' - ' + magGroups[i + 1] + '<br>' : ' + ');
       }
 

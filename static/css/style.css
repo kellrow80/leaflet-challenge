@@ -8,3 +8,10 @@ body,
 html {
   height: 100%;
 }
+
+i {
+  width: 15px;
+  height: 15px;
+  float: left;
+  margin-right: 5px;
+}
